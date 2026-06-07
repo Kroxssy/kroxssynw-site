@@ -21,12 +21,13 @@ body {
     100% {background-position: 0% 50%;}
 }
 
+/* 🧊 panel */
 .panel {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 650px;
+    width: 700px;
     padding: 30px;
     border-radius: 20px;
     background: rgba(255,255,255,0.06);
@@ -52,12 +53,6 @@ body {
     background: rgba(0,0,0,0.3);
     border: 1px solid rgba(255,255,255,0.1);
     cursor: pointer;
-    transition: 0.2s;
-}
-
-.ip-box:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px #00aaff;
 }
 
 .status {
@@ -71,6 +66,7 @@ body {
     font-size: 13px;
 }
 
+/* 🎨 cosmetics grid */
 .grid {
     margin-top: 25px;
     display: grid;
@@ -78,21 +74,31 @@ body {
     gap: 12px;
 }
 
-.btn {
-    padding: 14px;
-    border-radius: 12px;
-    background: rgba(0,170,255,0.15);
-    color: white;
-    font-size: 16px;
+.card {
+    padding: 18px;
+    border-radius: 14px;
+    background: rgba(0,170,255,0.12);
+    border: 1px solid rgba(0,170,255,0.25);
     cursor: pointer;
     transition: 0.25s;
-    border: 1px solid rgba(0,170,255,0.3);
+    text-align: left;
 }
 
-.btn:hover {
+.card:hover {
     transform: scale(1.05);
-    background: rgba(0,170,255,0.35);
-    box-shadow: 0 0 20px #00ccff;
+    box-shadow: 0 0 25px #00ccff;
+    background: rgba(0,170,255,0.25);
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.card p {
+    margin: 6px 0 0;
+    font-size: 13px;
+    opacity: 0.8;
 }
 </style>
 </head>
@@ -101,7 +107,7 @@ body {
 
 <div class="panel">
 
-    <div class="title">Kroxssy Network</div>
+    <div class="title">Cosmetics Center</div>
 
     <div class="ip-box" onclick="copyIP()">
         🌐 IP: <span id="ip">kroxssynw.eu.org</span> 📋
@@ -110,29 +116,38 @@ body {
     <div class="status">ONLINE</div>
 
     <div class="grid">
-        <button class="btn" onclick="openPage('rules.html')">📜 Rules</button>
-        <button class="btn" onclick="openPage('staff.html')">🛡️ Staff</button>
-        <button class="btn" onclick="openPage('shop.html')">🛒 Shop</button>
-        <button class="btn" onclick="openPage('server.html')">🌍 Server</button>
-        <button class="btn" onclick="openPage('status.html')">📊 Status</button>
-        <button class="btn" onclick="openPage('lobby.html')">🎮 Lobby</button>
+
+        <div class="card">
+            <h3>✨ Particles</h3>
+            <p>Oyuncu etrafı efektleri</p>
+        </div>
+
+        <div class="card">
+            <h3>💀 Kill Effects</h3>
+            <p>Kill animasyon efektleri</p>
+        </div>
+
+        <div class="card">
+            <h3>🏃 Trails</h3>
+            <p>Yürüyüş iz efektleri</p>
+        </div>
+
+        <div class="card">
+            <h3>😎 Emotes</h3>
+            <p>Animasyonlu hareketler</p>
+        </div>
+
     </div>
 
 </div>
 
 <script>
 
-// 📋 IP copy system
+// 📋 copy IP
 function copyIP(){
     const ip = document.getElementById("ip").innerText;
     navigator.clipboard.writeText(ip);
-
     alert("IP kopyalandı: " + ip);
-}
-
-// 🔗 page navigation
-function openPage(page){
-    window.location.href = page;
 }
 
 </script>
