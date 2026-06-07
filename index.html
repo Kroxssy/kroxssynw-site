@@ -13,15 +13,6 @@ body {
     background: radial-gradient(circle at top, #0b1220, #050816);
 }
 
-/* 🌫️ soft overlay */
-.overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(-45deg, #0a1a33, #050816, #0d0f2c);
-    opacity: 0.8;
-}
-
 /* 🧊 panel */
 .panel {
     position: absolute;
@@ -38,15 +29,13 @@ body {
     color: white;
 }
 
-/* 🏷️ logo */
 .title {
     font-size: 56px;
     font-weight: bold;
-    letter-spacing: 1px;
     text-shadow: 0 0 25px #00aaff;
 }
 
-/* 🌐 ip */
+/* 🌐 IP */
 .ip {
     margin-top: 14px;
     display: inline-block;
@@ -55,12 +44,6 @@ body {
     background: rgba(0,0,0,0.35);
     border: 1px solid rgba(255,255,255,0.12);
     cursor: pointer;
-    transition: 0.2s;
-}
-
-.ip:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 18px #00aaff;
 }
 
 /* 📊 status */
@@ -83,13 +66,15 @@ body {
     gap: 16px;
 }
 
-/* 🔘 card buttons */
+/* 🔘 card */
 .card {
+    display: block;
     padding: 18px;
     border-radius: 16px;
     background: rgba(0,170,255,0.08);
     border: 1px solid rgba(0,170,255,0.20);
-    cursor: pointer;
+    text-decoration: none;
+    color: white;
     transition: 0.25s;
     text-align: left;
 }
@@ -115,8 +100,6 @@ body {
 
 <body>
 
-<div class="overlay"></div>
-
 <div class="panel">
 
     <div class="title">Kroxssy Network</div>
@@ -129,51 +112,40 @@ body {
 
     <div class="grid">
 
-        <div class="card" onclick="go('kurallar.html')">
+        <a class="card" href="kurallar.html">
             <h3>📜 Kurallar</h3>
             <p>Sunucu kurallarını görüntüle</p>
-        </div>
+        </a>
 
-        <div class="card" onclick="go('yetkililer.html')">
+        <a class="card" href="yetkililer.html">
             <h3>🛡️ Yetkililer</h3>
             <p>Ekip ve yönetim kadrosu</p>
-        </div>
+        </a>
 
-        <div class="card" onclick="go('market.html')">
+        <a class="card" href="market.html">
             <h3>🛒 Market</h3>
             <p>Özel ürünler ve paketler</p>
-        </div>
+        </a>
 
-        <div class="card" onclick="go('sunucu.html')">
+        <a class="card" href="sunucu.html">
             <h3>🌍 Sunucu</h3>
             <p>Modlar ve sunucu bilgisi</p>
-        </div>
+        </a>
 
-        <div class="card" onclick="go('durum.html')">
+        <a class="card" href="durum.html">
             <h3>📊 Durum</h3>
             <p>Online oyuncular ve status</p>
-        </div>
-
-        <div class="card" onclick="go('kozmetikler.html')">
-            <h3>✨ Kozmetikler</h3>
-            <p>Efektler ve görsel öğeler</p>
-        </div>
+        </a>
 
     </div>
 
 </div>
 
 <script>
-
 function copyIP(){
     navigator.clipboard.writeText("kroxssynw.eu.org");
     alert("IP kopyalandı!");
 }
-
-function go(page){
-    window.location.href = page;
-}
-
 </script>
 
 </body>
