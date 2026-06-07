@@ -1,10 +1,128 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
-    <title>KroxssyNW</title>
+  <meta charset="UTF-8">
+  <title>Kroxssy Network</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle at top, #1a1a1a, #000);
+      color: white;
+      text-align: center;
+    }
+
+    .hero {
+      padding: 120px 20px;
+    }
+
+    .title {
+      font-size: 60px;
+      font-weight: bold;
+      color: #ff3c3c;
+      text-shadow: 0 0 20px #ff3c3c;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      color: #ccc;
+      margin-top: 10px;
+    }
+
+    .ip-box {
+      margin-top: 30px;
+      display: inline-block;
+      padding: 15px 25px;
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .ip-box:hover {
+      border-color: #ff3c3c;
+      transform: scale(1.05);
+    }
+
+    .btn {
+      margin-top: 35px;
+      padding: 12px 25px;
+      background: #ff3c3c;
+      border: none;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #ff1f1f;
+      transform: scale(1.05);
+    }
+
+    .section {
+      margin-top: 80px;
+      padding: 20px;
+    }
+
+    .card {
+      display: inline-block;
+      background: #111;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #222;
+      max-width: 500px;
+    }
+
+    footer {
+      margin-top: 100px;
+      padding: 20px;
+      color: #666;
+      font-size: 14px;
+    }
+  </style>
 </head>
+
 <body>
-    <h1>KroxssyNW</h1>
-    <p>Sunucumuz yakında açılıyor!</p>
+
+  <div class="hero">
+    <div class="title">Kroxssy Network</div>
+    <div class="subtitle">PvP • Survival • Event Sunucusu</div>
+
+    <div class="ip-box" onclick="copyIP()">
+      IP: oyna.kroxssynw.eu.org (tıkla kopyala)
+    </div>
+
+    <br>
+
+    <button class="btn" onclick="alert('Minecraft açılıyor!')">
+      Sunucuya Katıl
+    </button>
+
+    <div class="section">
+      <div class="card">
+        <h2>Sunucu Hakkında</h2>
+        <p>
+          Kroxssy Network; PvP, survival ve özel etkinliklerle
+          oyunculara rekabetçi bir Minecraft deneyimi sunar.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © 2026 Kroxssy Network • Tüm hakları saklıdır
+  </footer>
+
+  <script>
+    function copyIP() {
+      navigator.clipboard.writeText("oyna.kroxssynw.eu.org");
+      alert("IP kopyalandı!");
+    }
+  </script>
+
 </body>
 </html>
