@@ -5,64 +5,83 @@
 <title>Kroxssy Network</title>
 
 <style>
-body{
+*{
   margin:0;
+  padding:0;
+  box-sizing:border-box;
   font-family:Arial;
-  background:#050814;
+}
+
+body{
+  background: radial-gradient(circle at top, #0b1020, #000);
   color:white;
 }
 
-/* NAV */
-.nav{
+/* TOP BAR */
+.topbar{
+  position:fixed;
+  top:0;
+  width:100%;
   display:flex;
   justify-content:space-between;
-  padding:20px 40px;
+  padding:18px 40px;
   background:rgba(0,0,0,0.6);
-  position:fixed;
-  width:100%;
-  top:0;
-  backdrop-filter:blur(10px);
+  backdrop-filter:blur(12px);
+  z-index:999;
 }
 
-.nav a{
+.logo{
+  color:#4df0ff;
+  font-weight:bold;
+}
+
+.topbar a{
   color:#aaa;
-  margin-left:15px;
+  margin-left:18px;
   text-decoration:none;
 }
 
-.nav a:hover{color:white}
+.topbar a:hover{
+  color:white;
+}
 
 /* HERO */
 .hero{
   text-align:center;
-  padding:200px 20px 80px;
+  padding:180px 20px 60px;
 }
 
 .title{
-  font-size:80px;
+  font-size:90px;
   color:#4df0ff;
-  text-shadow:0 0 30px #4df0ff;
+  text-shadow:0 0 40px #4df0ff;
 }
 
 .subtitle{
-  color:#bbb;
   margin-top:10px;
+  color:#ccc;
 }
 
-/* IP */
-.ip{
-  margin-top:25px;
+/* IP PANEL */
+.ip-box{
+  margin-top:30px;
   display:inline-block;
   padding:15px 25px;
   background:#111827;
   border:1px solid #1f2937;
-  border-radius:10px;
+  border-radius:12px;
   cursor:pointer;
+  transition:0.3s;
+}
+
+.ip-box:hover{
+  transform:scale(1.05);
+  border-color:#4df0ff;
 }
 
 /* BUTTONS */
 .buttons{
-  margin-top:25px;
+  margin-top:20px;
   display:flex;
   justify-content:center;
   gap:15px;
@@ -70,56 +89,74 @@ body{
 }
 
 .btn{
-  padding:12px 22px;
+  padding:12px 20px;
   border:none;
   border-radius:10px;
   cursor:pointer;
   transition:0.3s;
-  font-size:14px;
 }
 
-.statusBtn{
-  background:#4df0ff;
-  color:black;
-}
+.blue{background:#4df0ff;color:black;}
+.red{background:#ff4d6d;color:white;}
+.gray{background:#111827;color:white;border:1px solid #1f2937;}
 
-.statusBtn:hover{
+.btn:hover{
   transform:scale(1.05);
-  background:#2dd4bf;
 }
 
-.copyBtn{
-  background:#ff4d6d;
-  color:white;
-}
-
-.copyBtn:hover{
-  transform:scale(1.05);
-  background:#ff1f3d;
-}
-
-/* GRID */
+/* DASHBOARD GRID */
 .grid{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:20px;
-  padding:60px 20px;
+  padding:60px 40px;
 }
 
+/* CARDS */
 .card{
-  width:220px;
-  padding:25px;
   background:#111827;
   border:1px solid #1f2937;
-  border-radius:12px;
-  text-align:center;
+  padding:25px;
+  border-radius:14px;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  border-color:#4df0ff;
+}
+
+/* BIG INFO PANEL */
+.panel{
+  margin:40px auto;
+  max-width:1000px;
+  background:#0f172a;
+  border:1px solid #1f2937;
+  padding:30px;
+  border-radius:16px;
+  line-height:1.6;
+}
+
+/* STATUS BAR */
+.statusbar{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-top:20px;
+}
+
+.stat{
+  padding:12px 18px;
+  background:#111827;
+  border-radius:10px;
+  border:1px solid #1f2937;
 }
 
 /* FOOTER */
 footer{
   text-align:center;
-  padding:40px;
+  padding:50px;
   color:#666;
 }
 </style>
@@ -127,11 +164,10 @@ footer{
 
 <body>
 
-<!-- NAV -->
-<div class="nav">
-  <div>Kroxssy Network</div>
+<!-- TOP -->
+<div class="topbar">
+  <div class="logo">Kroxssy Network</div>
   <div>
-    <a href="index.html">Ana Sayfa</a>
     <a href="server.html">Sunucu</a>
     <a href="rules.html">Kurallar</a>
     <a href="staff.html">Ekip</a>
@@ -142,42 +178,52 @@ footer{
 
 <!-- HERO -->
 <div class="hero">
-
   <div class="title">Kroxssy Network</div>
-  <div class="subtitle">Modern Minecraft Network Platformu</div>
+  <div class="subtitle">Ultra Premium Minecraft Network</div>
 
-  <!-- IP TEXT -->
-  <div class="ip" onclick="copyIP()">
+  <div class="ip-box" onclick="copyIP()">
     IP: kroxssynw.eu.org
   </div>
 
-  <!-- BUTTONS -->
   <div class="buttons">
-
-    <button class="btn copyBtn" onclick="copyIP()">
-      IP Kopyala
-    </button>
-
-    <button class="btn statusBtn" onclick="goStatus()">
-      Sunucu Durumu
-    </button>
-
+    <button class="btn blue" onclick="copyIP()">IP Kopyala</button>
+    <button class="btn red" onclick="goStatus()">Sunucu Durumu</button>
+    <button class="btn gray" onclick="scrollInfo()">Detaylar</button>
   </div>
-
 </div>
 
-<!-- FEATURES -->
+<!-- STATUS BAR -->
+<div class="statusbar">
+  <div class="stat">🟢 Online</div>
+  <div class="stat">👥 0 / 200</div>
+  <div class="stat">⚡ 32ms</div>
+  <div class="stat">🌍 1.8 - 1.20+</div>
+</div>
+
+<!-- INFO PANEL -->
+<div class="panel">
+  Kroxssy Network, rekabetçi PvP sistemi, gelişmiş survival ekonomisi,
+  klan savaşları ve özel event sistemleri ile oyunculara premium bir Minecraft
+  deneyimi sunan modern bir network platformudur.
+</div>
+
+<!-- GRID -->
 <div class="grid">
 
-  <div class="card">⚔ PvP Sistemi</div>
-  <div class="card">🌍 Survival</div>
-  <div class="card">🛡 Klanlar</div>
-  <div class="card">🎉 Eventler</div>
+  <div class="card">⚔ PvP Arena<br>Rekabetçi savaş sistemi</div>
+  <div class="card">🌍 Survival<br>Ekonomi + gelişmiş dünya</div>
+  <div class="card">🛡 Klanlar<br>Takım savaşları</div>
+  <div class="card">🎉 Event<br>Ödüllü etkinlikler</div>
+
+  <div class="card">💎 VIP Sistem<br>Kozmetik + rank</div>
+  <div class="card">🔥 AntiCheat<br>Koruma sistemi</div>
+  <div class="card">📊 Economy<br>Dengeli sistem</div>
+  <div class="card">🎮 Minigames<br>Eğlence modları</div>
 
 </div>
 
 <footer>
-© 2026 Kroxssy Network
+© 2026 Kroxssy Network • Ultra Premium Edition
 </footer>
 
 <script>
@@ -187,7 +233,11 @@ function copyIP(){
 }
 
 function goStatus(){
-  window.location.href = "status.html";
+  window.location.href="status.html";
+}
+
+function scrollInfo(){
+  window.scrollTo({top:400, behavior:"smooth"});
 }
 </script>
 
