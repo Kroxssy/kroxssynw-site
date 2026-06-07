@@ -9,75 +9,86 @@ body {
     margin: 0;
     height: 100vh;
     overflow: hidden;
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     background: linear-gradient(-45deg, #050816, #0a1a33, #0d0f2c, #120a2a);
     background-size: 400% 400%;
     animation: bg 12s ease infinite;
 }
 
+/* 🌊 arkaplan animasyonu */
 @keyframes bg {
     0% {background-position: 0% 50%;}
     50% {background-position: 100% 50%;}
     100% {background-position: 0% 50%;}
 }
 
-/* 🧊 panel */
+/* 🧊 ana panel */
 .panel {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 720px;
-    padding: 30px;
-    border-radius: 20px;
+    width: 760px;
+    padding: 32px;
+    border-radius: 22px;
     background: rgba(255,255,255,0.06);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.12);
     text-align: center;
     color: white;
 }
 
+/* 🏷️ başlık */
 .title {
-    font-size: 52px;
+    font-size: 54px;
     font-weight: bold;
-    text-shadow: 0 0 20px #00aaff;
+    text-shadow: 0 0 25px #00aaff;
 }
 
-/* 🌐 IP */
-.ip-box {
-    margin-top: 12px;
+/* 🌐 ip kutusu */
+.ip {
+    margin-top: 14px;
     display: inline-flex;
-    gap: 8px;
-    padding: 8px 14px;
-    border-radius: 10px;
-    background: rgba(0,0,0,0.3);
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    border-radius: 12px;
+    background: rgba(0,0,0,0.35);
+    border: 1px solid rgba(255,255,255,0.1);
     cursor: pointer;
+    transition: 0.2s;
 }
 
-/* 📊 status */
+.ip:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 18px #00aaff;
+}
+
+/* 📊 durum */
 .status {
-    margin-top: 10px;
+    margin-top: 12px;
     display: inline-block;
-    padding: 5px 12px;
+    padding: 6px 14px;
     border-radius: 50px;
     background: #00ff88;
     color: black;
     font-weight: bold;
+    font-size: 13px;
 }
 
-/* 🎮 grid */
+/* 🎮 menü grid */
 .grid {
-    margin-top: 25px;
+    margin-top: 28px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    gap: 14px;
 }
 
-/* 🔘 buttons */
+/* 🔘 butonlar */
 .btn {
     padding: 16px;
     border-radius: 14px;
-    background: rgba(0,170,255,0.12);
+    background: rgba(0,170,255,0.10);
     border: 1px solid rgba(0,170,255,0.25);
     color: white;
     cursor: pointer;
@@ -87,17 +98,17 @@ body {
 
 .btn:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 20px #00ccff;
-    background: rgba(0,170,255,0.3);
+    background: rgba(0,170,255,0.25);
+    box-shadow: 0 0 22px #00ccff;
 }
 
-/* ✨ cosmetics highlight */
-.cosmetics {
-    background: rgba(255, 215, 0, 0.12);
-    border: 1px solid rgba(255, 215, 0, 0.3);
+/* ⭐ özel vurgu */
+.highlight {
+    background: rgba(255, 215, 0, 0.10);
+    border: 1px solid rgba(255, 215, 0, 0.25);
 }
 
-.cosmetics:hover {
+.highlight:hover {
     box-shadow: 0 0 25px gold;
 }
 </style>
@@ -109,23 +120,23 @@ body {
 
     <div class="title">Kroxssy Network</div>
 
-    <div class="ip-box" onclick="copyIP()">
-        🌐 kroxssynw.eu.org 📋
+    <div class="ip" onclick="copyIP()">
+        🌐 IP: kroxssynw.eu.org 📋
     </div>
 
-    <div class="status">ONLINE</div>
+    <div class="status">SUNUCU AKTİF</div>
 
     <div class="grid">
 
-        <div class="btn" onclick="openPage('rules.html')">📜 Rules</div>
-        <div class="btn" onclick="openPage('staff.html')">🛡️ Staff</div>
-        <div class="btn" onclick="openPage('shop.html')">🛒 Shop</div>
+        <div class="btn" onclick="openPage('kurallar.html')">📜 Kurallar</div>
+        <div class="btn" onclick="openPage('yetkili.html')">🛡️ Yetkililer</div>
+        <div class="btn" onclick="openPage('market.html')">🛒 Market</div>
 
-        <div class="btn" onclick="openPage('server.html')">🌍 Server</div>
-        <div class="btn" onclick="openPage('status.html')">📊 Status</div>
+        <div class="btn" onclick="openPage('sunucu.html')">🌍 Sunucu</div>
+        <div class="btn" onclick="openPage('durum.html')">📊 Durum</div>
 
-        <div class="btn cosmetics" onclick="openPage('cosmetics.html')">
-            ✨ Cosmetics
+        <div class="btn highlight">
+            ✨ Kozmetikler
         </div>
 
     </div>
@@ -133,6 +144,7 @@ body {
 </div>
 
 <script>
+
 function copyIP(){
     navigator.clipboard.writeText("kroxssynw.eu.org");
     alert("IP kopyalandı!");
@@ -141,6 +153,7 @@ function copyIP(){
 function openPage(page){
     window.location.href = page;
 }
+
 </script>
 
 </body>
