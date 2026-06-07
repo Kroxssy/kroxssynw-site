@@ -13,12 +13,13 @@
 }
 
 body{
-  background: radial-gradient(circle at top, #0b1020, #000);
+  background: radial-gradient(circle at top, #070b18, #000);
   color:white;
+  overflow-x:hidden;
 }
 
-/* TOP BAR */
-.topbar{
+/* TOP NAV */
+.nav{
   position:fixed;
   top:0;
   width:100%;
@@ -27,43 +28,37 @@ body{
   padding:18px 40px;
   background:rgba(0,0,0,0.6);
   backdrop-filter:blur(12px);
-  z-index:999;
+  z-index:1000;
 }
 
-.logo{
-  color:#4df0ff;
-  font-weight:bold;
-}
-
-.topbar a{
+.nav a{
   color:#aaa;
-  margin-left:18px;
+  margin-left:15px;
   text-decoration:none;
 }
 
-.topbar a:hover{
-  color:white;
-}
+.nav a:hover{color:#fff}
 
 /* HERO */
 .hero{
   text-align:center;
-  padding:180px 20px 60px;
+  padding:200px 20px 80px;
 }
 
 .title{
-  font-size:90px;
+  font-size:92px;
   color:#4df0ff;
   text-shadow:0 0 40px #4df0ff;
 }
 
 .subtitle{
   margin-top:10px;
-  color:#ccc;
+  color:#bbb;
+  font-size:18px;
 }
 
-/* IP PANEL */
-.ip-box{
+/* IP BOX */
+.ip{
   margin-top:30px;
   display:inline-block;
   padding:15px 25px;
@@ -74,7 +69,7 @@ body{
   transition:0.3s;
 }
 
-.ip-box:hover{
+.ip:hover{
   transform:scale(1.05);
   border-color:#4df0ff;
 }
@@ -84,7 +79,7 @@ body{
   margin-top:20px;
   display:flex;
   justify-content:center;
-  gap:15px;
+  gap:12px;
   flex-wrap:wrap;
 }
 
@@ -97,22 +92,44 @@ body{
 }
 
 .blue{background:#4df0ff;color:black;}
-.red{background:#ff4d6d;color:white;}
 .gray{background:#111827;color:white;border:1px solid #1f2937;}
+.red{background:#ff4d6d;color:white;}
 
-.btn:hover{
-  transform:scale(1.05);
+.btn:hover{transform:scale(1.05)}
+
+/* LIVE STATUS BAR */
+.statusbar{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-top:30px;
 }
 
-/* DASHBOARD GRID */
+.stat{
+  background:#111827;
+  border:1px solid #1f2937;
+  padding:12px 18px;
+  border-radius:10px;
+}
+
+/* SECTION TITLE */
+.section-title{
+  text-align:center;
+  margin-top:80px;
+  font-size:40px;
+  color:#4df0ff;
+}
+
+/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:20px;
-  padding:60px 40px;
+  padding:50px 40px;
 }
 
-/* CARDS */
+/* CARD */
 .card{
   background:#111827;
   border:1px solid #1f2937;
@@ -122,41 +139,25 @@ body{
 }
 
 .card:hover{
-  transform:translateY(-8px);
+  transform:translateY(-10px);
   border-color:#4df0ff;
 }
 
-/* BIG INFO PANEL */
+/* INFO PANEL */
 .panel{
-  margin:40px auto;
   max-width:1000px;
+  margin:40px auto;
   background:#0f172a;
-  border:1px solid #1f2937;
   padding:30px;
-  border-radius:16px;
-  line-height:1.6;
-}
-
-/* STATUS BAR */
-.statusbar{
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  flex-wrap:wrap;
-  margin-top:20px;
-}
-
-.stat{
-  padding:12px 18px;
-  background:#111827;
-  border-radius:10px;
+  border-radius:14px;
   border:1px solid #1f2937;
+  line-height:1.7;
 }
 
 /* FOOTER */
 footer{
   text-align:center;
-  padding:50px;
+  padding:60px;
   color:#666;
 }
 </style>
@@ -164,9 +165,9 @@ footer{
 
 <body>
 
-<!-- TOP -->
-<div class="topbar">
-  <div class="logo">Kroxssy Network</div>
+<!-- NAV -->
+<div class="nav">
+  <div>Kroxssy Network</div>
   <div>
     <a href="server.html">Sunucu</a>
     <a href="rules.html">Kurallar</a>
@@ -179,20 +180,20 @@ footer{
 <!-- HERO -->
 <div class="hero">
   <div class="title">Kroxssy Network</div>
-  <div class="subtitle">Ultra Premium Minecraft Network</div>
+  <div class="subtitle">Hybrid Hypixel Style Minecraft Network</div>
 
-  <div class="ip-box" onclick="copyIP()">
+  <div class="ip" onclick="copyIP()">
     IP: kroxssynw.eu.org
   </div>
 
   <div class="buttons">
     <button class="btn blue" onclick="copyIP()">IP Kopyala</button>
-    <button class="btn red" onclick="goStatus()">Sunucu Durumu</button>
-    <button class="btn gray" onclick="scrollInfo()">Detaylar</button>
+    <button class="btn red" onclick="goStatus()">Durum</button>
+    <button class="btn gray" onclick="scrollDown()">Detaylar</button>
   </div>
 </div>
 
-<!-- STATUS BAR -->
+<!-- STATUS -->
 <div class="statusbar">
   <div class="stat">🟢 Online</div>
   <div class="stat">👥 0 / 200</div>
@@ -200,30 +201,36 @@ footer{
   <div class="stat">🌍 1.8 - 1.20+</div>
 </div>
 
-<!-- INFO PANEL -->
+<!-- INFO -->
 <div class="panel">
-  Kroxssy Network, rekabetçi PvP sistemi, gelişmiş survival ekonomisi,
-  klan savaşları ve özel event sistemleri ile oyunculara premium bir Minecraft
-  deneyimi sunan modern bir network platformudur.
+Kroxssy Network, rekabetçi PvP, gelişmiş survival ekonomi sistemi, klan savaşları ve özel eventler ile
+oyunculara premium Minecraft deneyimi sunan modern bir network platformudur.
 </div>
 
-<!-- GRID -->
-<div class="grid">
+<!-- MODES -->
+<div class="section-title">Oyun Modları</div>
 
-  <div class="card">⚔ PvP Arena<br>Rekabetçi savaş sistemi</div>
-  <div class="card">🌍 Survival<br>Ekonomi + gelişmiş dünya</div>
+<div class="grid">
+  <div class="card">⚔ PvP Arena<br>Ranked savaş sistemi</div>
+  <div class="card">🌍 Survival<br>Ekonomi + şehir sistemi</div>
   <div class="card">🛡 Klanlar<br>Takım savaşları</div>
   <div class="card">🎉 Event<br>Ödüllü etkinlikler</div>
+</div>
 
-  <div class="card">💎 VIP Sistem<br>Kozmetik + rank</div>
-  <div class="card">🔥 AntiCheat<br>Koruma sistemi</div>
-  <div class="card">📊 Economy<br>Dengeli sistem</div>
-  <div class="card">🎮 Minigames<br>Eğlence modları</div>
+<!-- FEATURES -->
+<div class="section-title">Özellikler</div>
 
+<div class="grid">
+  <div class="card">💎 VIP Sistem</div>
+  <div class="card">🔥 Anti-Cheat</div>
+  <div class="card">📊 Economy</div>
+  <div class="card">🎮 Mini Games</div>
+  <div class="card">🌐 Cross Play</div>
+  <div class="card">⚙ Optimize Sistem</div>
 </div>
 
 <footer>
-© 2026 Kroxssy Network • Ultra Premium Edition
+© 2026 Kroxssy Network • Ultra Hybrid Edition
 </footer>
 
 <script>
@@ -236,8 +243,8 @@ function goStatus(){
   window.location.href="status.html";
 }
 
-function scrollInfo(){
-  window.scrollTo({top:400, behavior:"smooth"});
+function scrollDown(){
+  window.scrollTo({top:500, behavior:"smooth"});
 }
 </script>
 
