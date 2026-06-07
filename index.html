@@ -1,128 +1,243 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>Kroxssy Network</title>
+<meta charset="UTF-8">
+<title>Kroxssy Network</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: radial-gradient(circle at top, #1a1a1a, #000);
-      color: white;
-      text-align: center;
-    }
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
 
-    .hero {
-      padding: 120px 20px;
-    }
+body {
+  background: radial-gradient(circle at top, #1a1a1a, #000);
+  color: white;
+  overflow-x: hidden;
+}
 
-    .title {
-      font-size: 60px;
-      font-weight: bold;
-      color: #ff3c3c;
-      text-shadow: 0 0 20px #ff3c3c;
-    }
+/* NAV */
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 40px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
 
-    .subtitle {
-      font-size: 20px;
-      color: #ccc;
-      margin-top: 10px;
-    }
+.nav h2 {
+  color: #ff3c3c;
+}
 
-    .ip-box {
-      margin-top: 30px;
-      display: inline-block;
-      padding: 15px 25px;
-      background: #111;
-      border: 1px solid #333;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+.nav a {
+  color: #aaa;
+  margin-left: 20px;
+  text-decoration: none;
+}
 
-    .ip-box:hover {
-      border-color: #ff3c3c;
-      transform: scale(1.05);
-    }
+.nav a:hover {
+  color: white;
+}
 
-    .btn {
-      margin-top: 35px;
-      padding: 12px 25px;
-      background: #ff3c3c;
-      border: none;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-      border-radius: 8px;
-      transition: 0.3s;
-    }
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 200px 20px 120px;
+}
 
-    .btn:hover {
-      background: #ff1f1f;
-      transform: scale(1.05);
-    }
+.title {
+  font-size: 80px;
+  font-weight: bold;
+  color: #ff3c3c;
+  text-shadow: 0 0 40px #ff3c3c;
+}
 
-    .section {
-      margin-top: 80px;
-      padding: 20px;
-    }
+.subtitle {
+  margin-top: 15px;
+  font-size: 20px;
+  color: #bbb;
+}
 
-    .card {
-      display: inline-block;
-      background: #111;
-      padding: 20px;
-      border-radius: 12px;
-      border: 1px solid #222;
-      max-width: 500px;
-    }
+/* IP BOX */
+.ip {
+  margin-top: 30px;
+  display: inline-block;
+  padding: 15px 25px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid #333;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-    footer {
-      margin-top: 100px;
-      padding: 20px;
-      color: #666;
-      font-size: 14px;
-    }
-  </style>
+.ip:hover {
+  transform: scale(1.05);
+  border-color: #ff3c3c;
+}
+
+/* BUTTON */
+.btn {
+  margin-top: 25px;
+  padding: 14px 30px;
+  background: #ff3c3c;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #ff1f1f;
+  transform: translateY(-3px);
+}
+
+/* SECTIONS */
+.section {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: 35px;
+  margin-bottom: 20px;
+  color: #ff3c3c;
+}
+
+/* CARDS */
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  width: 250px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid #222;
+  padding: 25px;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: #ff3c3c;
+}
+
+/* ABOUT */
+.about {
+  max-width: 800px;
+  margin: auto;
+  background: rgba(255,255,255,0.05);
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid #222;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-size: 13px;
+}
+</style>
 </head>
 
 <body>
 
-  <div class="hero">
-    <div class="title">Kroxssy Network</div>
-    <div class="subtitle">PvP • Survival • Event Sunucusu</div>
+<!-- NAV -->
+<div class="nav">
+  <h2>KroxssyNW</h2>
+  <div>
+    <a href="#">Home</a>
+    <a href="#">Features</a>
+    <a href="#">About</a>
+    <a href="#">Discord</a>
+  </div>
+</div>
 
-    <div class="ip-box" onclick="copyIP()">
-      IP: oyna.kroxssynw.eu.org (tıkla kopyala)
-    </div>
+<!-- HERO -->
+<div class="hero">
+  <div class="title">Kroxssy Network</div>
+  <div class="subtitle">PvP • Survival • Klan Savaşları • Event Sistemi</div>
 
-    <br>
-
-    <button class="btn" onclick="alert('Minecraft açılıyor!')">
-      Sunucuya Katıl
-    </button>
-
-    <div class="section">
-      <div class="card">
-        <h2>Sunucu Hakkında</h2>
-        <p>
-          Kroxssy Network; PvP, survival ve özel etkinliklerle
-          oyunculara rekabetçi bir Minecraft deneyimi sunar.
-        </p>
-      </div>
-    </div>
+  <div class="ip" onclick="copyIP()">
+    IP: oyna.kroxssynw.eu.org
   </div>
 
-  <footer>
-    © 2026 Kroxssy Network • Tüm hakları saklıdır
-  </footer>
+  <br>
 
-  <script>
-    function copyIP() {
-      navigator.clipboard.writeText("oyna.kroxssynw.eu.org");
-      alert("IP kopyalandı!");
-    }
-  </script>
+  <button class="btn">Sunucuya Katıl</button>
+</div>
+
+<!-- ABOUT -->
+<div class="section">
+  <h2>Sunucu Hakkında</h2>
+  <div class="about">
+    Kroxssy Network, oyunculara rekabetçi ve eğlenceli bir Minecraft deneyimi sunar.
+    PvP sistemi, gelişmiş survival ekonomisi, klan savaşları ve özel etkinliklerle
+    oyunculara sürekli aktif bir dünya sağlar.
+  </div>
+</div>
+
+<!-- FEATURES -->
+<div class="section">
+  <h2>Özellikler</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      ⚔️ PvP System
+      <p>Gelişmiş combat sistemi ve rekabetçi arena</p>
+    </div>
+
+    <div class="card">
+      🌍 Survival
+      <p>Ekonomi, kasaba sistemi ve gelişmiş dünya</p>
+    </div>
+
+    <div class="card">
+      🛡️ Clans
+      <p>Klan savaşları, rank sistemi ve takım rekabeti</p>
+    </div>
+
+    <div class="card">
+      🏆 Events
+      <p>Haftalık ödüllü özel etkinlikler</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- JOIN -->
+<div class="section">
+  <h2>Şimdi Katıl</h2>
+  <p>Arkadaşlarınla birlikte sunucuya gir ve rekabete başla!</p>
+  <br>
+  <button class="btn">Minecraft’a Bağlan</button>
+</div>
+
+<!-- FOOTER -->
+<footer>
+© 2026 Kroxssy Network • Tüm hakları saklıdır
+</footer>
+
+<script>
+function copyIP(){
+  navigator.clipboard.writeText("oyna.kroxssynw.eu.org");
+  alert("IP kopyalandı!");
+}
+</script>
 
 </body>
 </html>
