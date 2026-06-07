@@ -26,7 +26,7 @@ body{
 
 .nav a{
   color:#aaa;
-  margin-left:20px;
+  margin-left:15px;
   text-decoration:none;
 }
 
@@ -35,7 +35,7 @@ body{
 /* HERO */
 .hero{
   text-align:center;
-  padding:200px 20px 100px;
+  padding:200px 20px 80px;
 }
 
 .title{
@@ -49,7 +49,56 @@ body{
   margin-top:10px;
 }
 
-/* GRID MENU */
+/* IP */
+.ip{
+  margin-top:25px;
+  display:inline-block;
+  padding:15px 25px;
+  background:#111827;
+  border:1px solid #1f2937;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+/* BUTTONS */
+.buttons{
+  margin-top:25px;
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:12px 22px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  transition:0.3s;
+  font-size:14px;
+}
+
+.statusBtn{
+  background:#4df0ff;
+  color:black;
+}
+
+.statusBtn:hover{
+  transform:scale(1.05);
+  background:#2dd4bf;
+}
+
+.copyBtn{
+  background:#ff4d6d;
+  color:white;
+}
+
+.copyBtn:hover{
+  transform:scale(1.05);
+  background:#ff1f3d;
+}
+
+/* GRID */
 .grid{
   display:flex;
   justify-content:center;
@@ -65,24 +114,6 @@ body{
   border:1px solid #1f2937;
   border-radius:12px;
   text-align:center;
-  cursor:pointer;
-  transition:0.3s;
-}
-
-.card:hover{
-  transform:translateY(-8px);
-  border-color:#4df0ff;
-}
-
-/* IP */
-.ip{
-  margin-top:30px;
-  display:inline-block;
-  padding:15px 25px;
-  background:#111827;
-  border:1px solid #1f2937;
-  border-radius:10px;
-  cursor:pointer;
 }
 
 /* FOOTER */
@@ -96,6 +127,7 @@ footer{
 
 <body>
 
+<!-- NAV -->
 <div class="nav">
   <div>Kroxssy Network</div>
   <div>
@@ -104,35 +136,43 @@ footer{
     <a href="rules.html">Kurallar</a>
     <a href="staff.html">Ekip</a>
     <a href="shop.html">Mağaza</a>
+    <a href="status.html">Durum</a>
   </div>
 </div>
 
+<!-- HERO -->
 <div class="hero">
-  <div class="title">Kroxssy Network</div>
-  <div class="subtitle">Dev Minecraft Network Platformu</div>
 
+  <div class="title">Kroxssy Network</div>
+  <div class="subtitle">Modern Minecraft Network Platformu</div>
+
+  <!-- IP TEXT -->
   <div class="ip" onclick="copyIP()">
-    IP: oyna.kroxssynw.eu.org
+    IP: kroxssynw.eu.org
   </div>
+
+  <!-- BUTTONS -->
+  <div class="buttons">
+
+    <button class="btn copyBtn" onclick="copyIP()">
+      IP Kopyala
+    </button>
+
+    <button class="btn statusBtn" onclick="goStatus()">
+      Sunucu Durumu
+    </button>
+
+  </div>
+
 </div>
 
+<!-- FEATURES -->
 <div class="grid">
 
-  <div class="card" onclick="location.href='server.html'">
-    🌍 Sunucu<br>Detaylar
-  </div>
-
-  <div class="card" onclick="location.href='rules.html'">
-    📜 Kurallar<br>Okumadan girme
-  </div>
-
-  <div class="card" onclick="location.href='staff.html'">
-    🛡 Ekip<br>Yönetim
-  </div>
-
-  <div class="card" onclick="location.href='shop.html'">
-    💎 Mağaza<br>Kozmetikler
-  </div>
+  <div class="card">⚔ PvP Sistemi</div>
+  <div class="card">🌍 Survival</div>
+  <div class="card">🛡 Klanlar</div>
+  <div class="card">🎉 Eventler</div>
 
 </div>
 
@@ -142,8 +182,12 @@ footer{
 
 <script>
 function copyIP(){
-  navigator.clipboard.writeText("oyna.kroxssynw.eu.org");
+  navigator.clipboard.writeText("kroxssynw.eu.org");
   alert("IP kopyalandı!");
+}
+
+function goStatus(){
+  window.location.href = "status.html";
 }
 </script>
 
