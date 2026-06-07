@@ -2,249 +2,109 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>Kroxssy Network</title>
+<title>Server Lobby</title>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial;
+/* 🌌 Background */
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(-45deg, #0a0f2c, #1b1f3a, #0f1b2d, #1a1033);
+    background-size: 400% 400%;
+    animation: bgMove 12s ease infinite;
 }
 
-body{
-  background: radial-gradient(circle at top, #070b18, #000);
-  color:white;
-  overflow-x:hidden;
+/* 🌊 Animated background */
+@keyframes bgMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
 }
 
-/* TOP NAV */
-.nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  display:flex;
-  justify-content:space-between;
-  padding:18px 40px;
-  background:rgba(0,0,0,0.6);
-  backdrop-filter:blur(12px);
-  z-index:1000;
+/* ✨ Center container */
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
 }
 
-.nav a{
-  color:#aaa;
-  margin-left:15px;
-  text-decoration:none;
+/* 🏷️ Title animation */
+.title {
+    font-size: 60px;
+    font-weight: bold;
+    text-shadow: 0 0 20px #00aaff;
+    animation: popIn 1.2s ease-out, glow 2s infinite alternate;
 }
 
-.nav a:hover{color:#fff}
-
-/* HERO */
-.hero{
-  text-align:center;
-  padding:200px 20px 80px;
+@keyframes popIn {
+    from {transform: scale(0.5); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
 }
 
-.title{
-  font-size:92px;
-  color:#4df0ff;
-  text-shadow:0 0 40px #4df0ff;
+@keyframes glow {
+    from {text-shadow: 0 0 10px #00aaff;}
+    to {text-shadow: 0 0 30px #00ffff;}
 }
 
-.subtitle{
-  margin-top:10px;
-  color:#bbb;
-  font-size:18px;
+/* 🎮 Buttons */
+.btn {
+    margin-top: 25px;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 10px;
+    background: #00aaff;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 10px #00aaff;
 }
 
-/* IP BOX */
-.ip{
-  margin-top:30px;
-  display:inline-block;
-  padding:15px 25px;
-  background:#111827;
-  border:1px solid #1f2937;
-  border-radius:12px;
-  cursor:pointer;
-  transition:0.3s;
+.btn:hover {
+    transform: scale(1.1) translateY(-3px);
+    box-shadow: 0 0 25px #00ffff;
 }
 
-.ip:hover{
-  transform:scale(1.05);
-  border-color:#4df0ff;
+/* ✨ floating particles */
+.particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: floatUp 6s linear infinite;
 }
 
-/* BUTTONS */
-.buttons{
-  margin-top:20px;
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
-}
-
-.btn{
-  padding:12px 20px;
-  border:none;
-  border-radius:10px;
-  cursor:pointer;
-  transition:0.3s;
-}
-
-.blue{background:#4df0ff;color:black;}
-.gray{background:#111827;color:white;border:1px solid #1f2937;}
-.red{background:#ff4d6d;color:white;}
-
-.btn:hover{transform:scale(1.05)}
-
-/* LIVE STATUS BAR */
-.statusbar{
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  flex-wrap:wrap;
-  margin-top:30px;
-}
-
-.stat{
-  background:#111827;
-  border:1px solid #1f2937;
-  padding:12px 18px;
-  border-radius:10px;
-}
-
-/* SECTION TITLE */
-.section-title{
-  text-align:center;
-  margin-top:80px;
-  font-size:40px;
-  color:#4df0ff;
-}
-
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-  padding:50px 40px;
-}
-
-/* CARD */
-.card{
-  background:#111827;
-  border:1px solid #1f2937;
-  padding:25px;
-  border-radius:14px;
-  transition:0.3s;
-}
-
-.card:hover{
-  transform:translateY(-10px);
-  border-color:#4df0ff;
-}
-
-/* INFO PANEL */
-.panel{
-  max-width:1000px;
-  margin:40px auto;
-  background:#0f172a;
-  padding:30px;
-  border-radius:14px;
-  border:1px solid #1f2937;
-  line-height:1.7;
-}
-
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:60px;
-  color:#666;
+@keyframes floatUp {
+    from {transform: translateY(100vh);}
+    to {transform: translateY(-10vh);}
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
-<div class="nav">
-  <div>Kroxssy Network</div>
-  <div>
-    <a href="server.html">Sunucu</a>
-    <a href="rules.html">Kurallar</a>
-    <a href="staff.html">Ekip</a>
-    <a href="shop.html">Mağaza</a>
-    <a href="status.html">Durum</a>
-  </div>
+<div class="center">
+    <div class="title">Kroxssy Network</div>
+    <button class="btn">Sunucuya Gir</button>
+    <button class="btn">Market</button>
 </div>
-
-<!-- HERO -->
-<div class="hero">
-  <div class="title">Kroxssy Network</div>
-  <div class="subtitle">Hybrid Hypixel Style Minecraft Network</div>
-
-  <div class="ip" onclick="copyIP()">
-    IP: kroxssynw.eu.org
-  </div>
-
-  <div class="buttons">
-    <button class="btn blue" onclick="copyIP()">IP Kopyala</button>
-    <button class="btn red" onclick="goStatus()">Durum</button>
-    <button class="btn gray" onclick="scrollDown()">Detaylar</button>
-  </div>
-</div>
-
-<!-- STATUS -->
-<div class="statusbar">
-  <div class="stat">🟢 Online</div>
-  <div class="stat">👥 0 / 200</div>
-  <div class="stat">⚡ 32ms</div>
-  <div class="stat">🌍 1.8 - 1.20+</div>
-</div>
-
-<!-- INFO -->
-<div class="panel">
-Kroxssy Network, rekabetçi PvP, gelişmiş survival ekonomi sistemi, klan savaşları ve özel eventler ile
-oyunculara premium Minecraft deneyimi sunan modern bir network platformudur.
-</div>
-
-<!-- MODES -->
-<div class="section-title">Oyun Modları</div>
-
-<div class="grid">
-  <div class="card">⚔ PvP Arena<br>Ranked savaş sistemi</div>
-  <div class="card">🌍 Survival<br>Ekonomi + şehir sistemi</div>
-  <div class="card">🛡 Klanlar<br>Takım savaşları</div>
-  <div class="card">🎉 Event<br>Ödüllü etkinlikler</div>
-</div>
-
-<!-- FEATURES -->
-<div class="section-title">Özellikler</div>
-
-<div class="grid">
-  <div class="card">💎 VIP Sistem</div>
-  <div class="card">🔥 Anti-Cheat</div>
-  <div class="card">📊 Economy</div>
-  <div class="card">🎮 Mini Games</div>
-  <div class="card">🌐 Cross Play</div>
-  <div class="card">⚙ Optimize Sistem</div>
-</div>
-
-<footer>
-© 2026 Kroxssy Network • Ultra Hybrid Edition
-</footer>
 
 <script>
-function copyIP(){
-  navigator.clipboard.writeText("kroxssynw.eu.org");
-  alert("IP kopyalandı!");
-}
-
-function goStatus(){
-  window.location.href="status.html";
-}
-
-function scrollDown(){
-  window.scrollTo({top:500, behavior:"smooth"});
+// ✨ particle generator
+for(let i=0;i<40;i++){
+    let p = document.createElement("div");
+    p.className = "particle";
+    p.style.left = Math.random()*100 + "vw";
+    p.style.animationDuration = (3 + Math.random()*5) + "s";
+    p.style.opacity = Math.random();
+    document.body.appendChild(p);
 }
 </script>
 
