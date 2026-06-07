@@ -5,212 +5,163 @@
 <title>Kroxssy Network</title>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+body{
+  margin:0;
+  font-family:Arial;
+  background:#0b0f1a;
+  color:white;
 }
 
-body {
-  background: linear-gradient(135deg, #12001f, #001a2b, #1b0022);
-  color: white;
+/* TOP BAR */
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  padding:18px 40px;
+  background:rgba(0,0,0,0.5);
+  position:fixed;
+  width:100%;
+  top:0;
+  backdrop-filter:blur(10px);
 }
 
-/* NAV */
-.nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 18px 40px;
-  background: rgba(0,0,0,0.4);
-  backdrop-filter: blur(10px);
+.logo{
+  font-weight:bold;
+  color:#4df0ff;
 }
 
-.nav h2 {
-  color: #4df0ff;
+.menu a{
+  color:#aaa;
+  margin-left:20px;
+  text-decoration:none;
 }
 
-.nav a {
-  color: #bbb;
-  margin-left: 15px;
-  text-decoration: none;
-}
-
-.nav a:hover {
-  color: white;
+.menu a:hover{
+  color:white;
 }
 
 /* HERO */
-.hero {
-  text-align: center;
-  padding: 180px 20px 80px;
+.hero{
+  text-align:center;
+  padding:180px 20px 80px;
 }
 
-.title {
-  font-size: 80px;
-  font-weight: bold;
-  color: #4df0ff;
-  text-shadow: 0 0 25px #4df0ff;
+.title{
+  font-size:72px;
+  color:#4df0ff;
+  text-shadow:0 0 20px #4df0ff;
 }
 
-.subtitle {
-  font-size: 20px;
-  margin-top: 10px;
-  color: #ccc;
+.subtitle{
+  color:#bbb;
+  margin-top:10px;
+  font-size:18px;
 }
 
 /* IP BOX */
-.ip {
-  margin-top: 30px;
-  display: inline-block;
-  padding: 15px 25px;
-  background: rgba(255,255,255,0.07);
-  border: 1px solid #333;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: 0.3s;
+.ip{
+  margin-top:25px;
+  display:inline-block;
+  padding:15px 25px;
+  background:#111827;
+  border:1px solid #1f2937;
+  border-radius:10px;
+  cursor:pointer;
 }
 
-.ip:hover {
-  transform: scale(1.05);
-  border-color: #4df0ff;
+/* SECTIONS */
+.section{
+  padding:80px 20px;
+  text-align:center;
 }
 
-/* SECTION */
-.section {
-  padding: 90px 20px;
-  text-align: center;
-}
-
-.section h2 {
-  font-size: 36px;
-  color: #4df0ff;
-  margin-bottom: 20px;
+.box{
+  max-width:800px;
+  margin:auto;
+  background:#111827;
+  padding:25px;
+  border-radius:12px;
+  border:1px solid #1f2937;
+  line-height:1.6;
 }
 
 /* CARDS */
-.cards {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
+.cards{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:15px;
 }
 
-.card {
-  width: 280px;
-  padding: 25px;
-  border-radius: 15px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  transition: 0.3s;
+.card{
+  width:230px;
+  background:#111827;
+  border:1px solid #1f2937;
+  padding:20px;
+  border-radius:12px;
 }
 
-.card:hover {
-  transform: translateY(-8px);
-  border-color: #4df0ff;
-}
-
-/* INFO BOX */
-.info {
-  max-width: 900px;
-  margin: auto;
-  background: rgba(255,255,255,0.05);
-  padding: 30px;
-  border-radius: 15px;
-  border: 1px solid rgba(255,255,255,0.1);
-  line-height: 1.6;
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 40px;
-  color: #888;
-  font-size: 13px;
+footer{
+  text-align:center;
+  padding:40px;
+  color:#666;
+  font-size:13px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
-<div class="nav">
-  <h2>✨ KroxssyNW</h2>
-  <div>
+<div class="topbar">
+  <div class="logo">Kroxssy Network</div>
+  <div class="menu">
     <a href="#">Ana Sayfa</a>
-    <a href="#">Özellikler</a>
+    <a href="#">Sunucu</a>
     <a href="#">Kurallar</a>
     <a href="#">Discord</a>
   </div>
 </div>
 
-<!-- HERO -->
 <div class="hero">
   <div class="title">Kroxssy Network</div>
-  <div class="subtitle">PvP • Survival • Klan Savaşları • Event Sistemi</div>
+  <div class="subtitle">Modern Minecraft Network Platformu</div>
 
   <div class="ip" onclick="copyIP()">
-    IP: oyna.kroxssynw.eu.org (tıkla kopyala)
+    IP: oyna.kroxssynw.eu.org
   </div>
 </div>
 
-<!-- ABOUT -->
 <div class="section">
-  <h2>Sunucu Hakkında</h2>
-  <div class="info">
-    Kroxssy Network, oyunculara modern ve rekabetçi bir Minecraft deneyimi sunmak için geliştirilmiş bir sunucudur.  
-    PvP odaklı savaş sistemi, ekonomi tabanlı survival modu, klan savaşları ve haftalık etkinliklerle sürekli aktif bir oyun ortamı sağlar.  
-    Sunucu tamamen dengeli progression sistemi ile hem yeni başlayanlara hem de profesyonel oyunculara hitap eder.
+  <h2>Hakkımızda</h2>
+  <div class="box">
+    Kroxssy Network; PvP, Survival, Klan Savaşları ve Event sistemleriyle
+    modern bir Minecraft deneyimi sunan topluluk tabanlı bir oyun platformudur.
+    Amacımız stabil, rekabetçi ve uzun ömürlü bir network oluşturmaktır.
   </div>
 </div>
 
-<!-- FEATURES -->
 <div class="section">
-  <h2>Oyun Modları</h2>
+  <h2>Modüller</h2>
 
   <div class="cards">
-
-    <div class="card">
-      ⚔️ PvP Arenası<br>
-      Rekabetçi savaş sistemi ve rank sistemi
-    </div>
-
-    <div class="card">
-      🌍 Survival<br>
-      Ekonomi, kasaba sistemi ve gelişmiş dünya
-    </div>
-
-    <div class="card">
-      🛡️ Klan Sistemi<br>
-      Takım kur, savaşlara katıl, yüksel
-    </div>
-
-    <div class="card">
-      🎉 Event Sistemi<br>
-      Haftalık ödüllü özel etkinlikler
-    </div>
-
+    <div class="card">⚔ PvP Arena</div>
+    <div class="card">🌍 Survival</div>
+    <div class="card">🛡 Clans</div>
+    <div class="card">🎉 Events</div>
   </div>
 </div>
 
-<!-- RULES / INFO -->
 <div class="section">
-  <h2>Sunucu Bilgileri</h2>
-
-  <div class="info">
-    ✔ Versiyon: 1.8 - 1.20+ desteklenir<br>
-    ✔ Lag optimizasyonu yapılmıştır<br>
-    ✔ Hile koruma sistemi aktiftir<br>
-    ✔ Aktif yönetim ekibi vardır<br>
-    ✔ Sürekli güncellenen içerik sistemi
+  <h2>Sunucu Durumu</h2>
+  <div class="box">
+    ✔ Aktif geliştirme<br>
+    ✔ Optimizasyon sistemi<br>
+    ✔ Anti-cheat koruması<br>
+    ✔ Sürekli güncellenen altyapı
   </div>
 </div>
 
 <footer>
-© 2026 Kroxssy Network • Tüm hakları saklıdır
+© 2026 Kroxssy Network
 </footer>
 
 <script>
