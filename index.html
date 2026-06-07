@@ -9,7 +9,7 @@ body {
     margin: 0;
     height: 100vh;
     overflow: hidden;
-    font-family: Arial, sans-serif;
+    font-family: Arial;
     background: linear-gradient(-45deg, #050816, #0a1a33, #0d0f2c, #120a2a);
     background-size: 400% 400%;
     animation: bg 12s ease infinite;
@@ -27,7 +27,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 700px;
+    width: 720px;
     padding: 30px;
     border-radius: 20px;
     background: rgba(255,255,255,0.06);
@@ -43,18 +43,18 @@ body {
     text-shadow: 0 0 20px #00aaff;
 }
 
+/* 🌐 IP */
 .ip-box {
     margin-top: 12px;
     display: inline-flex;
-    align-items: center;
-    gap: 10px;
+    gap: 8px;
     padding: 8px 14px;
     border-radius: 10px;
     background: rgba(0,0,0,0.3);
-    border: 1px solid rgba(255,255,255,0.1);
     cursor: pointer;
 }
 
+/* 📊 status */
 .status {
     margin-top: 10px;
     display: inline-block;
@@ -63,42 +63,42 @@ body {
     background: #00ff88;
     color: black;
     font-weight: bold;
-    font-size: 13px;
 }
 
-/* 🎨 cosmetics grid */
+/* 🎮 grid */
 .grid {
     margin-top: 25px;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 12px;
 }
 
-.card {
-    padding: 18px;
+/* 🔘 buttons */
+.btn {
+    padding: 16px;
     border-radius: 14px;
     background: rgba(0,170,255,0.12);
     border: 1px solid rgba(0,170,255,0.25);
+    color: white;
     cursor: pointer;
-    transition: 0.25s;
-    text-align: left;
+    transition: 0.2s;
+    font-size: 15px;
 }
 
-.card:hover {
+.btn:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 25px #00ccff;
-    background: rgba(0,170,255,0.25);
+    box-shadow: 0 0 20px #00ccff;
+    background: rgba(0,170,255,0.3);
 }
 
-.card h3 {
-    margin: 0;
-    font-size: 18px;
+/* ✨ cosmetics highlight */
+.cosmetics {
+    background: rgba(255, 215, 0, 0.12);
+    border: 1px solid rgba(255, 215, 0, 0.3);
 }
 
-.card p {
-    margin: 6px 0 0;
-    font-size: 13px;
-    opacity: 0.8;
+.cosmetics:hover {
+    box-shadow: 0 0 25px gold;
 }
 </style>
 </head>
@@ -107,34 +107,25 @@ body {
 
 <div class="panel">
 
-    <div class="title">Cosmetics Center</div>
+    <div class="title">Kroxssy Network</div>
 
     <div class="ip-box" onclick="copyIP()">
-        🌐 IP: <span id="ip">kroxssynw.eu.org</span> 📋
+        🌐 kroxssynw.eu.org 📋
     </div>
 
     <div class="status">ONLINE</div>
 
     <div class="grid">
 
-        <div class="card">
-            <h3>✨ Particles</h3>
-            <p>Oyuncu etrafı efektleri</p>
-        </div>
+        <div class="btn" onclick="openPage('rules.html')">📜 Rules</div>
+        <div class="btn" onclick="openPage('staff.html')">🛡️ Staff</div>
+        <div class="btn" onclick="openPage('shop.html')">🛒 Shop</div>
 
-        <div class="card">
-            <h3>💀 Kill Effects</h3>
-            <p>Kill animasyon efektleri</p>
-        </div>
+        <div class="btn" onclick="openPage('server.html')">🌍 Server</div>
+        <div class="btn" onclick="openPage('status.html')">📊 Status</div>
 
-        <div class="card">
-            <h3>🏃 Trails</h3>
-            <p>Yürüyüş iz efektleri</p>
-        </div>
-
-        <div class="card">
-            <h3>😎 Emotes</h3>
-            <p>Animasyonlu hareketler</p>
+        <div class="btn cosmetics" onclick="openPage('cosmetics.html')">
+            ✨ Cosmetics
         </div>
 
     </div>
@@ -142,14 +133,14 @@ body {
 </div>
 
 <script>
-
-// 📋 copy IP
 function copyIP(){
-    const ip = document.getElementById("ip").innerText;
-    navigator.clipboard.writeText(ip);
-    alert("IP kopyalandı: " + ip);
+    navigator.clipboard.writeText("kroxssynw.eu.org");
+    alert("IP kopyalandı!");
 }
 
+function openPage(page){
+    window.location.href = page;
+}
 </script>
 
 </body>
