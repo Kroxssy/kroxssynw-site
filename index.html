@@ -8,58 +8,75 @@
 body{
   margin:0;
   font-family:Arial;
-  background:#0b0f1a;
+  background:#050814;
   color:white;
 }
 
-/* TOP BAR */
-.topbar{
+/* NAV */
+.nav{
   display:flex;
   justify-content:space-between;
-  padding:18px 40px;
-  background:rgba(0,0,0,0.5);
+  padding:20px 40px;
+  background:rgba(0,0,0,0.6);
   position:fixed;
   width:100%;
   top:0;
   backdrop-filter:blur(10px);
 }
 
-.logo{
-  font-weight:bold;
-  color:#4df0ff;
-}
-
-.menu a{
+.nav a{
   color:#aaa;
   margin-left:20px;
   text-decoration:none;
 }
 
-.menu a:hover{
-  color:white;
-}
+.nav a:hover{color:white}
 
 /* HERO */
 .hero{
   text-align:center;
-  padding:180px 20px 80px;
+  padding:200px 20px 100px;
 }
 
 .title{
-  font-size:72px;
+  font-size:80px;
   color:#4df0ff;
-  text-shadow:0 0 20px #4df0ff;
+  text-shadow:0 0 30px #4df0ff;
 }
 
 .subtitle{
   color:#bbb;
   margin-top:10px;
-  font-size:18px;
 }
 
-/* IP BOX */
+/* GRID MENU */
+.grid{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:20px;
+  padding:60px 20px;
+}
+
+.card{
+  width:220px;
+  padding:25px;
+  background:#111827;
+  border:1px solid #1f2937;
+  border-radius:12px;
+  text-align:center;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  border-color:#4df0ff;
+}
+
+/* IP */
 .ip{
-  margin-top:25px;
+  margin-top:30px;
   display:inline-block;
   padding:15px 25px;
   background:#111827;
@@ -68,96 +85,55 @@ body{
   cursor:pointer;
 }
 
-/* SECTIONS */
-.section{
-  padding:80px 20px;
-  text-align:center;
-}
-
-.box{
-  max-width:800px;
-  margin:auto;
-  background:#111827;
-  padding:25px;
-  border-radius:12px;
-  border:1px solid #1f2937;
-  line-height:1.6;
-}
-
-/* CARDS */
-.cards{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:15px;
-}
-
-.card{
-  width:230px;
-  background:#111827;
-  border:1px solid #1f2937;
-  padding:20px;
-  border-radius:12px;
-}
-
+/* FOOTER */
 footer{
   text-align:center;
   padding:40px;
   color:#666;
-  font-size:13px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="topbar">
-  <div class="logo">Kroxssy Network</div>
-  <div class="menu">
-    <a href="#">Ana Sayfa</a>
-    <a href="#">Sunucu</a>
-    <a href="#">Kurallar</a>
-    <a href="#">Discord</a>
+<div class="nav">
+  <div>Kroxssy Network</div>
+  <div>
+    <a href="index.html">Ana Sayfa</a>
+    <a href="server.html">Sunucu</a>
+    <a href="rules.html">Kurallar</a>
+    <a href="staff.html">Ekip</a>
+    <a href="shop.html">Mağaza</a>
   </div>
 </div>
 
 <div class="hero">
   <div class="title">Kroxssy Network</div>
-  <div class="subtitle">Modern Minecraft Network Platformu</div>
+  <div class="subtitle">Dev Minecraft Network Platformu</div>
 
   <div class="ip" onclick="copyIP()">
     IP: oyna.kroxssynw.eu.org
   </div>
 </div>
 
-<div class="section">
-  <h2>Hakkımızda</h2>
-  <div class="box">
-    Kroxssy Network; PvP, Survival, Klan Savaşları ve Event sistemleriyle
-    modern bir Minecraft deneyimi sunan topluluk tabanlı bir oyun platformudur.
-    Amacımız stabil, rekabetçi ve uzun ömürlü bir network oluşturmaktır.
-  </div>
-</div>
+<div class="grid">
 
-<div class="section">
-  <h2>Modüller</h2>
-
-  <div class="cards">
-    <div class="card">⚔ PvP Arena</div>
-    <div class="card">🌍 Survival</div>
-    <div class="card">🛡 Clans</div>
-    <div class="card">🎉 Events</div>
+  <div class="card" onclick="location.href='server.html'">
+    🌍 Sunucu<br>Detaylar
   </div>
-</div>
 
-<div class="section">
-  <h2>Sunucu Durumu</h2>
-  <div class="box">
-    ✔ Aktif geliştirme<br>
-    ✔ Optimizasyon sistemi<br>
-    ✔ Anti-cheat koruması<br>
-    ✔ Sürekli güncellenen altyapı
+  <div class="card" onclick="location.href='rules.html'">
+    📜 Kurallar<br>Okumadan girme
   </div>
+
+  <div class="card" onclick="location.href='staff.html'">
+    🛡 Ekip<br>Yönetim
+  </div>
+
+  <div class="card" onclick="location.href='shop.html'">
+    💎 Mağaza<br>Kozmetikler
+  </div>
+
 </div>
 
 <footer>
