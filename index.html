@@ -13,9 +13,16 @@
 }
 
 body {
-  background: radial-gradient(circle at top, #1a1a1a, #000);
+  background: linear-gradient(135deg, #1a0025, #001b2e, #2b0033);
   color: white;
   overflow-x: hidden;
+}
+
+/* glow anim */
+@keyframes glow {
+  0% { text-shadow: 0 0 10px #ff4d6d; }
+  50% { text-shadow: 0 0 25px #4df0ff; }
+  100% { text-shadow: 0 0 10px #ff4d6d; }
 }
 
 /* NAV */
@@ -26,17 +33,17 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 18px 40px;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(10px);
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(12px);
   z-index: 1000;
 }
 
 .nav h2 {
-  color: #ff3c3c;
+  color: #4df0ff;
 }
 
 .nav a {
-  color: #aaa;
+  color: #ccc;
   margin-left: 20px;
   text-decoration: none;
 }
@@ -48,67 +55,66 @@ body {
 /* HERO */
 .hero {
   text-align: center;
-  padding: 200px 20px 120px;
+  padding: 180px 20px 120px;
 }
 
 .title {
-  font-size: 80px;
+  font-size: 85px;
   font-weight: bold;
-  color: #ff3c3c;
-  text-shadow: 0 0 40px #ff3c3c;
+  animation: glow 3s infinite;
 }
 
 .subtitle {
-  margin-top: 15px;
   font-size: 20px;
-  color: #bbb;
+  color: #ddd;
+  margin-top: 10px;
 }
 
-/* IP BOX */
+/* IP */
 .ip {
   margin-top: 30px;
   display: inline-block;
   padding: 15px 25px;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.08);
   border: 1px solid #333;
-  border-radius: 12px;
+  border-radius: 14px;
   cursor: pointer;
   transition: 0.3s;
 }
 
 .ip:hover {
   transform: scale(1.05);
-  border-color: #ff3c3c;
+  border-color: #4df0ff;
 }
 
 /* BUTTON */
 .btn {
   margin-top: 25px;
-  padding: 14px 30px;
-  background: #ff3c3c;
+  padding: 14px 32px;
+  background: linear-gradient(90deg, #ff4d6d, #4df0ff);
   border: none;
   color: white;
   font-size: 16px;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
   transition: 0.3s;
 }
 
 .btn:hover {
-  background: #ff1f1f;
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.05);
+  filter: brightness(1.2);
 }
 
 /* SECTIONS */
 .section {
-  padding: 100px 20px;
+  padding: 90px 20px;
   text-align: center;
 }
 
 .section h2 {
-  font-size: 35px;
+  font-size: 40px;
   margin-bottom: 20px;
-  color: #ff3c3c;
+  color: #4df0ff;
 }
 
 /* CARDS */
@@ -120,34 +126,35 @@ body {
 }
 
 .card {
-  width: 250px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid #222;
+  width: 260px;
   padding: 25px;
-  border-radius: 15px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
   transition: 0.3s;
+  backdrop-filter: blur(8px);
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  border-color: #ff3c3c;
+  transform: translateY(-10px) rotate(1deg);
+  border-color: #4df0ff;
 }
 
 /* ABOUT */
 .about {
   max-width: 800px;
   margin: auto;
-  background: rgba(255,255,255,0.05);
   padding: 30px;
-  border-radius: 15px;
-  border: 1px solid #222;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
 }
 
 /* FOOTER */
 footer {
   text-align: center;
   padding: 40px;
-  color: #666;
+  color: #aaa;
   font-size: 13px;
 }
 </style>
@@ -157,11 +164,11 @@ footer {
 
 <!-- NAV -->
 <div class="nav">
-  <h2>KroxssyNW</h2>
+  <h2>✨ KroxssyNW</h2>
   <div>
     <a href="#">Home</a>
     <a href="#">Features</a>
-    <a href="#">About</a>
+    <a href="#">Cosmetics</a>
     <a href="#">Discord</a>
   </div>
 </div>
@@ -169,7 +176,7 @@ footer {
 <!-- HERO -->
 <div class="hero">
   <div class="title">Kroxssy Network</div>
-  <div class="subtitle">PvP • Survival • Klan Savaşları • Event Sistemi</div>
+  <div class="subtitle">Cosmetic • Fun • PvP • Survival Experience ✨</div>
 
   <div class="ip" onclick="copyIP()">
     IP: oyna.kroxssynw.eu.org
@@ -177,16 +184,15 @@ footer {
 
   <br>
 
-  <button class="btn">Sunucuya Katıl</button>
+  <button class="btn">🚀 Join the Adventure</button>
 </div>
 
 <!-- ABOUT -->
 <div class="section">
   <h2>Sunucu Hakkında</h2>
   <div class="about">
-    Kroxssy Network, oyunculara rekabetçi ve eğlenceli bir Minecraft deneyimi sunar.
-    PvP sistemi, gelişmiş survival ekonomisi, klan savaşları ve özel etkinliklerle
-    oyunculara sürekli aktif bir dünya sağlar.
+    Kroxssy Network; sadece PvP değil, aynı zamanda kozmetik sistemler,
+    efektler, özel title’lar ve eğlenceli oyun modlarıyla dolu bir Minecraft deneyimidir.
   </div>
 </div>
 
@@ -197,23 +203,23 @@ footer {
   <div class="cards">
 
     <div class="card">
-      ⚔️ PvP System
-      <p>Gelişmiş combat sistemi ve rekabetçi arena</p>
+      ⚔️ PvP System<br>
+      Smooth & competitive combat
     </div>
 
     <div class="card">
-      🌍 Survival
-      <p>Ekonomi, kasaba sistemi ve gelişmiş dünya</p>
+      ✨ Cosmetics<br>
+      Particles, titles & effects
     </div>
 
     <div class="card">
-      🛡️ Clans
-      <p>Klan savaşları, rank sistemi ve takım rekabeti</p>
+      🌍 Survival<br>
+      Economy + exploration
     </div>
 
     <div class="card">
-      🏆 Events
-      <p>Haftalık ödüllü özel etkinlikler</p>
+      🎉 Fun Events<br>
+      Weekly chaos & rewards
     </div>
 
   </div>
@@ -221,15 +227,14 @@ footer {
 
 <!-- JOIN -->
 <div class="section">
-  <h2>Şimdi Katıl</h2>
-  <p>Arkadaşlarınla birlikte sunucuya gir ve rekabete başla!</p>
+  <h2>Hazır mısın?</h2>
+  <p>Arkadaşlarını çağır ve dünyaya katıl ✨</p>
   <br>
   <button class="btn">Minecraft’a Bağlan</button>
 </div>
 
-<!-- FOOTER -->
 <footer>
-© 2026 Kroxssy Network • Tüm hakları saklıdır
+© 2026 Kroxssy Network • Made with ✨ & ⚡
 </footer>
 
 <script>
