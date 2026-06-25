@@ -6,71 +6,165 @@
 
 <style>
 body {
-    margin:0;
-    font-family:Arial;
-    background:#050816;
-    color:white;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle at top, #0b1220, #050816);
 }
 
-.nav {
-    display:flex;
-    justify-content:space-between;
-    padding:15px 30px;
-    background:rgba(255,255,255,0.05);
-    backdrop-filter:blur(10px);
+/* 🌫️ background glow */
+.bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-45deg, #0a1a33, #050816, #0d0f2c);
+    opacity: 0.85;
 }
 
-.nav a {
-    color:white;
-    text-decoration:none;
-    margin:0 10px;
-    opacity:0.7;
+/* 🧊 main panel */
+.panel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 820px;
+    padding: 40px;
+    border-radius: 24px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,0.10);
+    text-align: center;
+    color: white;
 }
 
-.nav a:hover {opacity:1;color:#00aaff;}
-
-.hero {
-    text-align:center;
-    margin-top:80px;
-}
-
+/* 🏷️ title */
 .title {
-    font-size:60px;
-    text-shadow:0 0 20px #00aaff;
+    font-size: 56px;
+    font-weight: bold;
+    text-shadow: 0 0 25px #00aaff;
 }
 
+/* 🌐 ip box */
+.ip {
+    margin-top: 14px;
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 12px;
+    background: rgba(0,0,0,0.35);
+    border: 1px solid rgba(255,255,255,0.12);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.ip:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 18px #00aaff;
+}
+
+/* 📊 status */
+.status {
+    margin-top: 12px;
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 50px;
+    background: #00ff88;
+    color: black;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+/* 🎮 grid */
+.grid {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+/* 🔘 cards */
 .card {
-    margin:30px auto;
-    width:300px;
-    padding:20px;
-    background:rgba(255,255,255,0.05);
-    border-radius:12px;
-    text-align:center;
+    display: block;
+    padding: 18px;
+    border-radius: 16px;
+    background: rgba(0,170,255,0.08);
+    border: 1px solid rgba(0,170,255,0.20);
+    text-decoration: none;
+    color: white;
+    transition: 0.25s;
+    text-align: left;
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 0 25px rgba(0,170,255,0.4);
+    background: rgba(0,170,255,0.18);
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.card p {
+    margin: 6px 0 0;
+    font-size: 13px;
+    opacity: 0.75;
 }
 </style>
 </head>
 
 <body>
 
-<div class="nav">
-    <div><b>Kroxssy Network</b></div>
-    <div>
-        <a href="index.html">Ana Sayfa</a>
-        <a href="rules.html">Rules</a>
-        <a href="shop.html">Shop</a>
-        <a href="stats.html">Stats</a>
-        <a href="account.html">Account</a>
-    </div>
-</div>
+<div class="bg"></div>
 
-<div class="hero">
+<div class="panel">
+
     <div class="title">Kroxssy Network</div>
-    <p>MMORPG • PvP • Economy Server</p>
 
-    <div class="card">
-        🌐 IP: gas-whale.gl.joinmc.link
+    <div class="ip" onclick="copyIP()">
+        🌐 gas-whale.gl.joinmc.link 📋
     </div>
+
+    <div class="status">SUNUCU AKTİF</div>
+
+    <div class="grid">
+
+        <a class="card" href="./rules.html">
+            <h3>📜 Kurallar</h3>
+            <p>Sunucu kurallarını incele</p>
+        </a>
+
+        <a class="card" href="./staff.html">
+            <h3>🛡️ Yetkililer</h3>
+            <p>Ekip ve yönetim kadrosu</p>
+        </a>
+
+        <a class="card" href="./shop.html">
+            <h3>🛒 Market</h3>
+            <p>Satın alma ve paketler</p>
+        </a>
+
+        <a class="card" href="./server.html">
+            <h3>🌍 Sunucu</h3>
+            <p>Oyun modları ve bilgiler</p>
+        </a>
+
+        <a class="card" href="./status.html">
+            <h3>📊 Durum</h3>
+            <p>Online oyuncular ve durum</p>
+        </a>
+
+    </div>
+
 </div>
+
+<script>
+function copyIP(){
+    navigator.clipboard.writeText( gas-whale.gl.joinmc.link ");
+    alert("IP kopyalandı!");
+}
+</script>
 
 </body>
 </html>
