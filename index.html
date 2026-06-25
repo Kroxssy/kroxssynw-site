@@ -7,124 +7,158 @@
 <style>
 body {
     margin: 0;
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     background: radial-gradient(circle at top, #0b1220, #050816);
     color: white;
     overflow-x: hidden;
 }
 
-/* 🌌 background */
+/* 🌌 background glow */
 .bg {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: url("assets/bg.png") center/cover;
-    opacity: 0.2;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(0,170,255,0.15), transparent 40%),
+        radial-gradient(circle at 80% 30%, rgba(0,255,136,0.08), transparent 50%),
+        url("assets/bg.png") center/cover;
+    opacity: 0.25;
 }
 
-/* 🧊 layout */
+/* 🧊 container */
 .container {
     position: relative;
-    padding: 40px;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: auto;
+    padding: 60px 20px;
 }
 
-/* HEADER */
-.header {
+/* 🏷️ top bar */
+.top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
 }
 
+/* logo */
 .logo {
     width: 90px;
-    filter: drop-shadow(0 0 15px #00aaff);
+    filter: drop-shadow(0 0 18px #00aaff);
 }
 
-/* LOGIN BOX */
+/* login */
 .login {
     background: rgba(255,255,255,0.05);
-    padding: 12px;
+    padding: 10px;
     border-radius: 12px;
     border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
 }
 
-input {
-    padding: 6px;
-    margin: 3px;
-    border-radius: 6px;
+.login input {
+    background: rgba(0,0,0,0.3);
     border: none;
-    outline: none;
+    color: white;
+    padding: 6px;
+    margin: 2px;
+    border-radius: 6px;
+    width: 100px;
 }
 
-/* HERO */
+/* 🎯 HERO */
 .hero {
     text-align: center;
-    padding: 30px;
+    margin-top: 70px;
 }
 
 .title {
-    font-size: 48px;
+    font-size: 62px;
     font-weight: bold;
-    text-shadow: 0 0 20px #00aaff;
+    text-shadow: 0 0 30px #00aaff;
+    letter-spacing: 1px;
 }
 
-/* IP */
-.ip {
-    display: inline-block;
+.subtitle {
     margin-top: 10px;
-    padding: 10px 16px;
-    background: rgba(0,0,0,0.4);
-    border-radius: 10px;
-    cursor: pointer;
+    opacity: 0.8;
+    font-size: 16px;
 }
 
-/* GRID */
+/* 🌐 IP */
+.ip {
+    margin-top: 18px;
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 12px;
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.15);
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.ip:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #00aaff;
+}
+
+/* status */
+.status {
+    margin-top: 12px;
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 50px;
+    background: #00ff88;
+    color: black;
+    font-weight: bold;
+}
+
+/* 📦 features */
 .grid {
+    margin-top: 70px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-top: 30px;
+    gap: 18px;
 }
 
 .card {
     background: rgba(0,170,255,0.08);
-    padding: 16px;
-    border-radius: 14px;
     border: 1px solid rgba(0,170,255,0.2);
+    border-radius: 16px;
+    padding: 18px;
     transition: 0.3s;
+    backdrop-filter: blur(10px);
 }
 
 .card:hover {
-    transform: translateY(-6px);
-    background: rgba(0,170,255,0.2);
+    transform: translateY(-8px);
+    background: rgba(0,170,255,0.18);
+    box-shadow: 0 0 30px rgba(0,170,255,0.3);
 }
 
-/* EXTRA PANELS */
-.panel-big {
-    margin-top: 30px;
+/* 🧠 lower dashboard */
+.bottom {
+    margin-top: 80px;
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 16px;
+    gap: 20px;
 }
 
 .box {
-    background: rgba(255,255,255,0.05);
-    padding: 18px;
-    border-radius: 14px;
-    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 20px;
+    backdrop-filter: blur(12px);
 }
 
-/* STATUS */
-.status {
-    display: inline-block;
-    padding: 6px 12px;
-    background: #00ff88;
-    color: black;
-    border-radius: 20px;
-    font-weight: bold;
+.box h2 {
+    margin-top: 0;
+    color: #00aaff;
+}
+
+/* footer spacing */
+.footer-space {
+    height: 80px;
 }
 </style>
 </head>
@@ -135,11 +169,10 @@ input {
 
 <div class="container">
 
-    <!-- HEADER -->
-    <div class="header">
+    <!-- TOP -->
+    <div class="top">
         <img src="assets/logo.png" class="logo">
 
-        <!-- 🔐 ACCOUNT UI -->
         <div class="login">
             <input placeholder="Kullanıcı">
             <input type="password" placeholder="Şifre">
@@ -150,40 +183,39 @@ input {
     <!-- HERO -->
     <div class="hero">
         <div class="title">Kroxssy Network</div>
+        <div class="subtitle">Modern Minecraft MMORPG & PvP Network</div>
 
         <div class="ip" onclick="copyIP()">
             🌐 gas-whale.gl.joinmc.link
         </div>
 
-        <div style="margin-top:10px;">
+        <div>
             <span class="status">SUNUCU AKTİF</span>
         </div>
     </div>
 
-    <!-- CARDS -->
+    <!-- FEATURES -->
     <div class="grid">
 
-        <div class="card">📜 Kurallar</div>
-        <div class="card">🛡 Yetkililer</div>
-        <div class="card">🛒 Market</div>
-        <div class="card">🌍 Sunucu</div>
-        <div class="card">📊 Durum</div>
-        <div class="card">⚔ MMORPG</div>
+        <div class="card">⚔ MMORPG Progression System</div>
+        <div class="card">🧟 Custom Boss & Mobs</div>
+        <div class="card">🌍 Risk Zone World (Safe / PvP / Black)</div>
+        <div class="card">💰 Player Economy System</div>
+        <div class="card">🏰 Guild Wars & Territory</div>
+        <div class="card">🎮 Competitive PvP Arena</div>
 
     </div>
 
-    <!-- EXTRA DASHBOARD AREA -->
-    <div class="panel-big">
+    <!-- BOTTOM -->
+    <div class="bottom">
 
-        <!-- NEWS -->
         <div class="box">
             <h2>📢 Duyurular</h2>
-            <p>- MMORPG sistemi geliştiriliyor</p>
-            <p>- Yeni bosslar eklenecek</p>
-            <p>- Guild savaşları geliyor</p>
+            <p>- MMORPG sistemi aktif geliştirme aşamasında</p>
+            <p>- Guild savaşları yakında</p>
+            <p>- Yeni bosslar geliyor</p>
         </div>
 
-        <!-- PLAYER STATS -->
         <div class="box">
             <h2>👤 Hesap Paneli</h2>
             <p>Oyuncu: -</p>
@@ -193,6 +225,8 @@ input {
         </div>
 
     </div>
+
+    <div class="footer-space"></div>
 
 </div>
 
