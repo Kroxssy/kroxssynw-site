@@ -6,280 +6,71 @@
 
 <style>
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: radial-gradient(circle at top, #0b1220, #050816);
-    color: white;
+    margin:0;
+    font-family:Arial;
+    background:#050816;
+    color:white;
 }
 
-/* 🌌 BACKGROUND */
-.bg {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background:
-        radial-gradient(circle at 20% 20%, rgba(0,170,255,0.15), transparent 40%),
-        radial-gradient(circle at 80% 30%, rgba(0,255,136,0.08), transparent 50%),
-        url("assets/bg.png") center/cover;
-    opacity: 0.22;
-}
-
-/* 🧱 CONTAINER */
-.container {
-    position: relative;
-    max-width: 1150px;
-    margin: auto;
-    padding: 40px 20px;
-}
-
-/* 🧭 NAVBAR */
 .nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display:flex;
+    justify-content:space-between;
+    padding:15px 30px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
 }
 
-.logo {
-    width: 85px;
-    filter: drop-shadow(0 0 20px #00aaff);
+.nav a {
+    color:white;
+    text-decoration:none;
+    margin:0 10px;
+    opacity:0.7;
 }
 
-/* LINKS */
-.links {
-    display: flex;
-    gap: 18px;
-}
+.nav a:hover {opacity:1;color:#00aaff;}
 
-.links a {
-    color: white;
-    text-decoration: none;
-    opacity: 0.7;
-    transition: 0.2s;
-}
-
-.links a:hover {
-    opacity: 1;
-    color: #00aaff;
-}
-
-/* 👤 ACCOUNT */
-.account {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 12px;
-    border-radius: 12px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    cursor: pointer;
-}
-
-.account img {
-    width: 20px;
-}
-
-/* 🎯 HERO */
 .hero {
-    text-align: center;
-    margin-top: 70px;
+    text-align:center;
+    margin-top:80px;
 }
 
 .title {
-    font-size: 64px;
-    font-weight: bold;
-    text-shadow: 0 0 30px #00aaff;
-}
-
-.sub {
-    opacity: 0.8;
-    margin-top: 6px;
-}
-
-/* 🌐 IP */
-.ip {
-    margin-top: 18px;
-    display: inline-block;
-    padding: 12px 18px;
-    border-radius: 12px;
-    background: rgba(0,0,0,0.4);
-    border: 1px solid rgba(255,255,255,0.15);
-    cursor: pointer;
-    transition: 0.25s;
-}
-
-.ip:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px #00aaff;
-}
-
-/* STATUS */
-.status {
-    margin-top: 12px;
-    display: inline-block;
-    padding: 6px 14px;
-    border-radius: 50px;
-    background: #00ff88;
-    color: black;
-    font-weight: bold;
-}
-
-/* 🎮 FEATURES */
-.grid {
-    margin-top: 60px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    font-size:60px;
+    text-shadow:0 0 20px #00aaff;
 }
 
 .card {
-    background: rgba(0,170,255,0.08);
-    border: 1px solid rgba(0,170,255,0.2);
-    border-radius: 16px;
-    padding: 18px;
-    transition: 0.25s;
-}
-
-.card:hover {
-    transform: translateY(-8px);
-    background: rgba(0,170,255,0.2);
-}
-
-/* 🧠 DASHBOARD */
-.dashboard {
-    margin-top: 70px;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 18px;
-}
-
-.box {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 16px;
-    padding: 20px;
-}
-
-.box h2 {
-    color: #00aaff;
-}
-
-/* 🔐 LOGIN */
-input {
-    width: 90%;
-    padding: 8px;
-    margin: 6px 0;
-    border-radius: 8px;
-    border: none;
-    background: rgba(0,0,0,0.4);
-    color: white;
-}
-
-button {
-    padding: 8px 14px;
-    border-radius: 8px;
-    border: none;
-    background: #00aaff;
-    color: white;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #0088cc;
+    margin:30px auto;
+    width:300px;
+    padding:20px;
+    background:rgba(255,255,255,0.05);
+    border-radius:12px;
+    text-align:center;
 }
 </style>
 </head>
 
 <body>
 
-<div class="bg"></div>
-
-<div class="container">
-
-    <!-- NAV -->
-    <div class="nav">
-        <img src="assets/logo.png" class="logo">
-
-        <div class="links">
-            <a href="#">Ana Sayfa</a>
-            <a href="#">MMORPG</a>
-            <a href="#">Market</a>
-            <a href="#">Discord</a>
-        </div>
-
-        <div class="account" onclick="openAccount()">
-            <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png">
-            Hesap
-        </div>
+<div class="nav">
+    <div><b>Kroxssy Network</b></div>
+    <div>
+        <a href="index.html">Ana Sayfa</a>
+        <a href="rules.html">Rules</a>
+        <a href="shop.html">Shop</a>
+        <a href="stats.html">Stats</a>
+        <a href="account.html">Account</a>
     </div>
-
-    <!-- HERO -->
-    <div class="hero">
-        <div class="title">Kroxssy Network</div>
-        <div class="sub">Albion tarzı MMORPG & PvP Network</div>
-
-        <div class="ip" onclick="copyIP()">
-            🌐 gas-whale.gl.joinmc.link
-        </div>
-
-        <div>
-            <span class="status">SUNUCU AKTİF</span>
-        </div>
-    </div>
-
-    <!-- FEATURES -->
-    <div class="grid">
-
-        <div class="card">⚔ MMORPG Gear System</div>
-        <div class="card">🧟 Custom Bosses</div>
-        <div class="card">🌍 Risk Zones</div>
-        <div class="card">💰 Economy System</div>
-        <div class="card">🏰 Guild Wars</div>
-        <div class="card">🎮 PvP Arena</div>
-
-    </div>
-
-    <!-- DASHBOARD -->
-    <div class="dashboard">
-
-        <!-- NEWS -->
-        <div class="box">
-            <h2>📢 Duyurular</h2>
-            <p>- MMORPG sistemi geliştiriliyor</p>
-            <p>- Guild savaşları yakında</p>
-            <p>- Yeni bosslar geliyor</p>
-        </div>
-
-        <!-- ACCOUNT -->
-        <div class="box" id="accountBox">
-            <h2>👤 Hesap</h2>
-
-            <input placeholder="Kullanıcı">
-            <input type="password" placeholder="Şifre">
-            <button>Giriş Yap</button>
-
-            <hr style="opacity:0.2">
-
-            <p>Seviye: -</p>
-            <p>Coin: -</p>
-            <p>Guild: -</p>
-        </div>
-
-    </div>
-
 </div>
 
-<script>
+<div class="hero">
+    <div class="title">Kroxssy Network</div>
+    <p>MMORPG • PvP • Economy Server</p>
 
-function copyIP(){
-    navigator.clipboard.writeText("gas-whale.gl.joinmc.link");
-    alert("IP kopyalandı!");
-}
-
-function openAccount(){
-    document.getElementById("accountBox").scrollIntoView({behavior:"smooth"});
-}
-
-</script>
+    <div class="card">
+        🌐 IP: gas-whale.gl.joinmc.link
+    </div>
+</div>
 
 </body>
 </html>
