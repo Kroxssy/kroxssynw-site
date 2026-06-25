@@ -7,13 +7,12 @@
 <style>
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Arial;
     background: radial-gradient(circle at top, #0b1220, #050816);
     color: white;
-    overflow-x: hidden;
 }
 
-/* 🌌 background glow */
+/* 🌌 background */
 .bg {
     position: fixed;
     width: 100%;
@@ -22,75 +21,91 @@ body {
         radial-gradient(circle at 20% 20%, rgba(0,170,255,0.15), transparent 40%),
         radial-gradient(circle at 80% 30%, rgba(0,255,136,0.08), transparent 50%),
         url("assets/bg.png") center/cover;
-    opacity: 0.25;
+    opacity: 0.22;
 }
 
 /* 🧊 container */
 .container {
     position: relative;
-    max-width: 1100px;
+    max-width: 1150px;
     margin: auto;
-    padding: 60px 20px;
+    padding: 40px 20px;
 }
 
-/* 🏷️ top bar */
-.top {
+/* 🧭 NAVBAR */
+.nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 0;
 }
 
-/* logo */
 .logo {
-    width: 90px;
+    width: 85px;
     filter: drop-shadow(0 0 18px #00aaff);
 }
 
-/* login */
-.login {
+/* NAV LINKS */
+.navlinks {
+    display: flex;
+    gap: 18px;
+}
+
+.navlinks a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.7;
+    transition: 0.2s;
+}
+
+.navlinks a:hover {
+    opacity: 1;
+    color: #00aaff;
+}
+
+/* 👤 ACCOUNT BOX */
+.account {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     background: rgba(255,255,255,0.05);
-    padding: 10px;
+    padding: 8px 12px;
     border-radius: 12px;
     border: 1px solid rgba(255,255,255,0.1);
     backdrop-filter: blur(10px);
+    cursor: pointer;
 }
 
-.login input {
-    background: rgba(0,0,0,0.3);
-    border: none;
-    color: white;
-    padding: 6px;
-    margin: 2px;
-    border-radius: 6px;
-    width: 100px;
+.account img {
+    width: 22px;
 }
 
 /* 🎯 HERO */
 .hero {
     text-align: center;
-    margin-top: 70px;
+    margin-top: 60px;
 }
 
 .title {
-    font-size: 62px;
+    font-size: 64px;
     font-weight: bold;
     text-shadow: 0 0 30px #00aaff;
-    letter-spacing: 1px;
 }
 
-.subtitle {
-    margin-top: 10px;
+.sub {
     opacity: 0.8;
-    font-size: 16px;
+    margin-top: 6px;
 }
 
 /* 🌐 IP */
 .ip {
     margin-top: 18px;
-    display: inline-block;
-    padding: 12px 20px;
-    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 18px;
     background: rgba(0,0,0,0.4);
+    border-radius: 12px;
     border: 1px solid rgba(255,255,255,0.15);
     cursor: pointer;
     transition: 0.25s;
@@ -101,7 +116,7 @@ body {
     box-shadow: 0 0 25px #00aaff;
 }
 
-/* status */
+/* STATUS */
 .status {
     margin-top: 12px;
     display: inline-block;
@@ -112,12 +127,12 @@ body {
     font-weight: bold;
 }
 
-/* 📦 features */
+/* 🎮 FEATURES */
 .grid {
-    margin-top: 70px;
+    margin-top: 60px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
+    gap: 16px;
 }
 
 .card {
@@ -125,22 +140,21 @@ body {
     border: 1px solid rgba(0,170,255,0.2);
     border-radius: 16px;
     padding: 18px;
-    transition: 0.3s;
+    transition: 0.25s;
     backdrop-filter: blur(10px);
 }
 
 .card:hover {
     transform: translateY(-8px);
-    background: rgba(0,170,255,0.18);
-    box-shadow: 0 0 30px rgba(0,170,255,0.3);
+    background: rgba(0,170,255,0.2);
 }
 
-/* 🧠 lower dashboard */
-.bottom {
-    margin-top: 80px;
+/* 👤 ACCOUNT PANEL */
+.account-panel {
+    margin-top: 70px;
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
 }
 
 .box {
@@ -148,17 +162,23 @@ body {
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 16px;
     padding: 20px;
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(10px);
 }
 
 .box h2 {
-    margin-top: 0;
     color: #00aaff;
+    margin-top: 0;
 }
 
-/* footer spacing */
-.footer-space {
-    height: 80px;
+/* input */
+input {
+    width: 90%;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 8px;
+    border: none;
+    background: rgba(0,0,0,0.4);
+    color: white;
 }
 </style>
 </head>
@@ -169,21 +189,31 @@ body {
 
 <div class="container">
 
-    <!-- TOP -->
-    <div class="top">
+    <!-- NAVBAR -->
+    <div class="nav">
+
         <img src="assets/logo.png" class="logo">
 
-        <div class="login">
-            <input placeholder="Kullanıcı">
-            <input type="password" placeholder="Şifre">
-            <button>Giriş</button>
+        <div class="navlinks">
+            <a href="#">Ana Sayfa</a>
+            <a href="#">MMORPG</a>
+            <a href="#">Market</a>
+            <a href="#">Discord</a>
         </div>
+
+        <!-- 👤 ACCOUNT ICON -->
+        <div class="account">
+            <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png">
+            <span>Hesap</span>
+        </div>
+
     </div>
 
     <!-- HERO -->
     <div class="hero">
+
         <div class="title">Kroxssy Network</div>
-        <div class="subtitle">Modern Minecraft MMORPG & PvP Network</div>
+        <div class="sub">Albion tarzı MMORPG & PvP Network</div>
 
         <div class="ip" onclick="copyIP()">
             🌐 gas-whale.gl.joinmc.link
@@ -192,32 +222,33 @@ body {
         <div>
             <span class="status">SUNUCU AKTİF</span>
         </div>
+
     </div>
 
     <!-- FEATURES -->
     <div class="grid">
 
-        <div class="card">⚔ MMORPG Progression System</div>
-        <div class="card">🧟 Custom Boss & Mobs</div>
-        <div class="card">🌍 Risk Zone World (Safe / PvP / Black)</div>
-        <div class="card">💰 Player Economy System</div>
-        <div class="card">🏰 Guild Wars & Territory</div>
-        <div class="card">🎮 Competitive PvP Arena</div>
+        <div class="card">⚔ MMORPG Gear System</div>
+        <div class="card">🧟 Custom Bosses</div>
+        <div class="card">🌍 Risk Zones</div>
+        <div class="card">💰 Economy System</div>
+        <div class="card">🏰 Guild Wars</div>
+        <div class="card">🎮 PvP Arena</div>
 
     </div>
 
-    <!-- BOTTOM -->
-    <div class="bottom">
+    <!-- ACCOUNT SYSTEM -->
+    <div class="account-panel">
 
         <div class="box">
-            <h2>📢 Duyurular</h2>
-            <p>- MMORPG sistemi aktif geliştirme aşamasında</p>
-            <p>- Guild savaşları yakında</p>
-            <p>- Yeni bosslar geliyor</p>
+            <h2>🔐 Giriş</h2>
+            <input placeholder="Kullanıcı adı">
+            <input type="password" placeholder="Şifre">
+            <button>Giriş Yap</button>
         </div>
 
         <div class="box">
-            <h2>👤 Hesap Paneli</h2>
+            <h2>👤 Hesap Bilgileri</h2>
             <p>Oyuncu: -</p>
             <p>Seviye: -</p>
             <p>Guild: -</p>
@@ -225,8 +256,6 @@ body {
         </div>
 
     </div>
-
-    <div class="footer-space"></div>
 
 </div>
 
